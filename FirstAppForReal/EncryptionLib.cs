@@ -7,7 +7,7 @@ namespace FirstAppForReal
 {
     class EncryptionLib
     {
-        string keyName = "key01";
+        string keyName = "BenjaminFranklin";
         readonly CspParameters cspp = new CspParameters();
         Network network;
         readonly Aes aes = Aes.Create();
