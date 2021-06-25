@@ -5,22 +5,53 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FirstAppForReal"
         mc:Ignorable="d"
-        Title="Benjamin Franklin" Height="200" Width="600">
+        Title="Benjamin Franklin" Height="400" Width="600">
     <Grid Margin="10">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="100"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <Label FontSize="50" Grid.Row="0" Grid.Column="0">Names</Label>
-        <ListBox Grid.Row="1" Grid.Column="0" x:Name="lstNames"/>
+        <Label FontSize="20" HorizontalAlignment="Center" Grid.Row="0" Grid.Column="0">Chat</Label>
+        <ListBox Grid.Row="1" Grid.Column="0" x:Name="messages"/>
+
+
+        <Grid Grid.Row="0" Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Label Grid.Column="0" HorizontalAlignment="Right">Current Name:</Label>
+            <Label x:Name="UserName" Grid.Column="1"/>
+            <Label Grid.Row="1" HorizontalAlignment="Right">IP Address: </Label>
+            <Label Grid.Row="1" Grid.Column="1" Content="localhost" x:Name="IPADDRESS"></Label>
+            
+        </Grid>
+
+        <Grid Grid.Row="3">
+            <TextBox Grid.Row ="1" x:Name="txtMessage" KeyDown="KeyDownHandler" Height="25" VerticalAlignment="Top"/>
+            <Button Content="Send" x:Name="msgSend" Grid.Row="1" Height="25" VerticalAlignment="Bottom" Click="ButtonSendMessage_Click"/>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+        </Grid>
         <StackPanel Grid.Row="1" Grid.Column="1" Margin="5,0,0,0">
             <TextBox x:Name="txtName"/>
-            <Button Content="Add Name" x:Name="btnAdd" Margin="0,5,0,0" Click="ButtonAddName_Click"/>
+            <Button Content="Set Name" x:Name="btnAdd" Margin="0,5,0,5" Click="ButtonAddName_Click"/>
+           
+            <Button Content="Set IP" Click="SET_IP"/>
 
         </StackPanel>
+        <Button Content="Connect" Click="CONNECTTEST" Margin="207,4,0,14"/>
     </Grid>
 </Window>
